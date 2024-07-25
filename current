@@ -940,23 +940,6 @@ do
             end 
         end)
     end)
-    local Toggle = Tabs.Main:AddToggle("Hi10", {Title = "Teleport Personer", Default = false})
-    Toggle:OnChanged(function()
-        Sus = Options.Hi10.Value
-        spawn(function()
-            while wait() and Sus do 
-                pcall(function()
-                    local Is 
-                    if not Is then  
-                        GoToPersonsHouse(tostring(Playt))
-                        Player.Character.HumanoidRootPart.CFrame = Workspace.HouseInteriors.blueprint:FindFirstChildWhichIsA('Model'):GetModelCFrame():ToWorldSpace(CFrame.new(0, 0, -6)) 
-                        wait(2)
-                        Is = Cash()
-                    end 
-                end)
-            end 
-        end)
-    end)
 
 local PlayerService = game:GetService("Players")--:GetPlayers()
 local TweenService = game:GetService("TweenService")
@@ -1101,6 +1084,27 @@ Tabs.Main:AddButton({Title = "Toggle fling",Description = "Toggles the fling",Ca
         TToggleFling()
     end)
 end})
+	
+	local Toggle = Tabs.Main:AddToggle("Hi10", {Title = "Teleport Personer", Default = false})
+    Toggle:OnChanged(function()
+        Sus = Options.Hi10.Value
+        spawn(function()
+            while wait() and Sus do 
+                pcall(function()
+                    local Is 
+                    if not Is then  
+                        GoToPersonsHouse(tostring(Playt))
+                        Player.Character.HumanoidRootPart.CFrame = Workspace.HouseInteriors.blueprint:FindFirstChildWhichIsA('Model'):GetModelCFrame():ToWorldSpace(CFrame.new(0, 0, -6)) 
+                        wait(2)
+                        Is = Cash()
+                        Player.Character.HumanoidRootPart.CFrame = Playt.Character.HumanoidRootPart.CFrame
+                        TToggleFling()
+                    end 
+                end)
+            end 
+        end)
+    end)
+
 
     local Toggle = Tabs.Main:AddToggle("Hi6", {Title = "Auto Buy from Player", Default = false})
     Toggle:OnChanged(function()
