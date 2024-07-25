@@ -940,13 +940,22 @@ do
             end 
         end)
     end)
-    local Toggle = Tabs.Main:AddToggle("Hi5", {Title = "Teleport to person home", Default = false})
+    local Toggle = Tabs.Main:AddToggle("Hi10", {Title = "Teleport Personer", Default = false})
     Toggle:OnChanged(function()
-    	spawn(function()
-		    GoToPersonsHouse(tostring(Playt))
-		    Player.Character.HumanoidRootPart.CFrame = Workspace.HouseInteriors.blueprint:FindFirstChildWhichIsA('Model'):GetModelCFrame():ToWorldSpace(CFrame.new(0, 0, -6)) 
-		        wait(2)
-    	end)
+        Sus = Options.Hi10.Value
+        spawn(function()
+            while wait() and Sus do 
+                pcall(function()
+                    local Is 
+                    if not Is then  
+                        GoToPersonsHouse(tostring(Playt))
+                        Player.Character.HumanoidRootPart.CFrame = Workspace.HouseInteriors.blueprint:FindFirstChildWhichIsA('Model'):GetModelCFrame():ToWorldSpace(CFrame.new(0, 0, -6)) 
+                        wait(2)
+                        Is = Cash()
+                    end 
+                end)
+            end 
+        end)
     end)
     local Toggle = Tabs.Main:AddToggle("Hi6", {Title = "Auto Buy from Player", Default = false})
     Toggle:OnChanged(function()
