@@ -957,7 +957,7 @@ do
             end 
         end)
     end)
-    
+
 local PlayerService = game:GetService("Players")--:GetPlayers()
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -1064,29 +1064,8 @@ local function DisableNoClip()
     end
 end
 
-local function OpenObject(object)
-    local OpenAnim = TweenService:Create(
-        object,
-        TweenInfo.new(0.25, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), --Enum.EasingStyle.Linear, Enum.EasingDirection.In
-        {Size = UDim2.new(0, 110, 0, 35), BackgroundColor3 = SelectedTheme[6] }
-    )
-    
-    OpenAnim:Play()
-end
-
-local function CloseObject(object)
-    local CloseAnim = TweenService:Create(
-        object,
-        TweenInfo.new(0.25, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out),
-        {Size = UDim2.new(0, 100, 0, 25), BackgroundColor3 = SelectedTheme[4] }
-    )
-    
-    CloseAnim:Play()
-end
-
 
 local function TToggleFling()
-        OpenObject(ToggleFling)
         
         BodyThrust = Instance.new("BodyThrust")
         if GetRigType() == Enum.HumanoidRigType.R6 then
@@ -1104,7 +1083,6 @@ local function TToggleFling()
 
         wait(2)
 
-        CloseObject(ToggleFling)
         
         DisableNoClip()
         for i, v in pairs(plr.Character:GetDescendants()) do
