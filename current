@@ -1,4 +1,4 @@
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/Extras/RobloxScriptsAdvertisment"))()
 repeat wait() until Player.PlayerGui:FindFirstChild("PlayButton",true)
 RunService.Stepped:Connect(function()
     pcall(function()
