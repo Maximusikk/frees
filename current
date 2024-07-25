@@ -957,6 +957,173 @@ do
             end 
         end)
     end)
+    
+local PlayerService = game:GetService("Players")--:GetPlayers()
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+
+local plr = PlayerService.LocalPlayer
+local mouse = plr:GetMouse()
+local BodyThrust = nil
+local Dragging = {}
+
+
+local Suggestions = {
+    2298830673, 300, 365, --gamier (test game)
+    1537690962, 250, 350, --bee swarm sim
+    5580097107, 300, 400, --frappe
+    2202352383, 275, 350, --super power training sim
+    142823291, 350, 425,  --murder mystery 2
+    155615604, 273, 462,  --prison life
+    1990228024, 200, 235, --bloxton hotels
+    189707, 250, 325,     --natural disaster survival
+    230362888, 265, 415,  --the normal elevator       (may not work)
+    5293755937, 335, 435, --speedrun sim
+    537413528, 300, 350,  --build a boat              (may not work)
+    18540115, 300, 425,   --survive the disasters
+    2041312716, 350, 465  --Ragdoll engine
+}
+
+
+local version = "v1.0.4"
+local font = Enum.Font.FredokaOne
+
+local AxisPositionX = {
+    0.05, 
+    0.35,
+    0.65
+}
+
+local AxisPositionY = {
+    40, --edit fling speed
+    90, --toggle fling types (normal, qfling, serverkek)
+    140, --extra (respawn)
+    190, --edit gui settings (hotkey, theme)
+    240
+}
+
+local Fling = {
+    false, --toggle
+    "", --hotkey
+    300, --speed
+    false, --server
+    false --stop vertfling
+}
+
+
+local function GetRigType()
+    
+    if plr.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+        return Enum.HumanoidRigType.R15
+    elseif plr.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+        return Enum.HumanoidRigType.R6
+    else
+        return nil
+    end
+end
+
+local function GetDeadState(player)
+    if player.Character.Humanoid:GetState() == Enum.HumanoidStateType.Dead then
+        return true
+    else
+        return false
+    end
+end
+
+
+local function EnableNoClip()
+    
+    if GetDeadState(plr) == false then
+        if GetRigType() == Enum.HumanoidRigType.R6 then
+            plr.Character:FindFirstChild("Torso").CanCollide            = false
+            plr.Character:FindFirstChild("Head").CanCollide             = false
+            plr.Character:FindFirstChild("HumanoidRootPart").CanCollide = false
+        elseif GetRigType() == Enum.HumanoidRigType.R15 then
+            plr.Character:FindFirstChild("UpperTorso").CanCollide       = false
+            plr.Character:FindFirstChild("LowerTorso").CanCollide       = false
+            plr.Character:FindFirstChild("Head").CanCollide             = false
+            plr.Character:FindFirstChild("HumanoidRootPart").CanCollide = false
+        end
+    end
+end
+
+local function DisableNoClip()
+    
+    if GetDeadState(plr) == false then
+        if GetRigType() == Enum.HumanoidRigType.R6 then
+            plr.Character:FindFirstChild("Torso").CanCollide            = true
+            plr.Character:FindFirstChild("Head").CanCollide             = true
+            plr.Character:FindFirstChild("HumanoidRootPart").CanCollide = true
+        elseif GetRigType() == Enum.HumanoidRigType.R15 then
+            plr.Character:FindFirstChild("UpperTorso").CanCollide       = true
+            plr.Character:FindFirstChild("LowerTorso").CanCollide       = true
+            plr.Character:FindFirstChild("Head").CanCollide             = true
+            plr.Character:FindFirstChild("HumanoidRootPart").CanCollide = true
+        end
+    end
+end
+
+local function OpenObject(object)
+    local OpenAnim = TweenService:Create(
+        object,
+        TweenInfo.new(0.25, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), --Enum.EasingStyle.Linear, Enum.EasingDirection.In
+        {Size = UDim2.new(0, 110, 0, 35), BackgroundColor3 = SelectedTheme[6] }
+    )
+    
+    OpenAnim:Play()
+end
+
+local function CloseObject(object)
+    local CloseAnim = TweenService:Create(
+        object,
+        TweenInfo.new(0.25, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out),
+        {Size = UDim2.new(0, 100, 0, 25), BackgroundColor3 = SelectedTheme[4] }
+    )
+    
+    CloseAnim:Play()
+end
+
+
+local function TToggleFling()
+        OpenObject(ToggleFling)
+        
+        BodyThrust = Instance.new("BodyThrust")
+        if GetRigType() == Enum.HumanoidRigType.R6 then
+            BodyThrust.Parent = plr.Character.Torso
+        elseif GetRigType() == Enum.HumanoidRigType.R15 then
+            BodyThrust.Parent = plr.Character.UpperTorso
+        end
+        
+        EnableNoClip()
+        BodyThrust.Force = Vector3.new(Fling[3], 0, 0)
+        BodyThrust.Location = Vector3.new(0, 0, Fling[3])
+        
+        
+        print("Enabled fling")
+
+        wait(2)
+
+        CloseObject(ToggleFling)
+        
+        DisableNoClip()
+        for i, v in pairs(plr.Character:GetDescendants()) do
+            if v:IsA("BasePart") then
+            v.Velocity, v.RotVelocity = Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)
+            end
+        end
+        BodyThrust:Destroy()
+        
+        print("Disabled fling")
+        
+end
+
+Tabs.Main:AddButton({Title = "Toggle fling",Description = "Toggles the fling",Callback = function()
+    spawn(function()
+        TToggleFling()
+    end)
+end})
+
     local Toggle = Tabs.Main:AddToggle("Hi6", {Title = "Auto Buy from Player", Default = false})
     Toggle:OnChanged(function()
         Sus = Options.Hi6.Value
