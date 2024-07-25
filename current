@@ -1097,6 +1097,7 @@ end})
                         Player.Character.HumanoidRootPart.CFrame = Workspace.HouseInteriors.blueprint:FindFirstChildWhichIsA('Model'):GetModelCFrame():ToWorldSpace(CFrame.new(0, 0, -6)) 
                         wait(2)
                         Is = Cash()
+                        wait(5)
                         Player.Character.HumanoidRootPart.CFrame = Playt.Character.HumanoidRootPart.CFrame
                         TToggleFling()
                     end 
