@@ -742,6 +742,21 @@ end})
             end 
         end)
     end)
+
+    Tabs.Main:AddButton({Title = "Grab Trading Linence",Description = "Grabs Trading Linence",Callback = function()
+		for i,v in pairs(game:GetService("Workspace").Interiors:GetDescendants()) do
+		    if v:IsA("BasePart") then
+		        v.Transparency = 1 
+		    end 
+		end 
+
+		game:GetService("Workspace").Interiors.DescendantAdded:Connect(function(v)
+		    if v:IsA('BasePart') and Hide then
+		        v.Transparency = 1 
+		    end 
+		end)
+    end})
+
 	local Toggle = Tabs.Main:AddToggle("Hi10", {Title = "Teleport Personer", Default = false})
     Toggle:OnChanged(function()
         Sus = Options.Hi10.Value
@@ -782,6 +797,9 @@ end})
     Dropdown:OnChanged(function(Value)
         Playt = Value
     end)
+
+
+
     Tabs.Main:AddButton({Title = "Grab Trading Linence",Description = "Grabs Trading Linence",Callback = function()
         ReplicatedStorage.API:FindFirstChild("TradeAPI/BeginQuiz"):FireServer()
         for i,v in pairs(getgc(true)) do
