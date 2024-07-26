@@ -1048,7 +1048,7 @@ local function DisableNoClip()
 end
 
 
-local function TToggleFling(playerFling)
+local function TToggleFling()
         
         BodyThrust = Instance.new("BodyThrust")
         if GetRigType() == Enum.HumanoidRigType.R6 then
@@ -1060,12 +1060,8 @@ local function TToggleFling(playerFling)
         EnableNoClip()
         BodyThrust.Force = Vector3.new(Fling[3], 0, 0)
         BodyThrust.Location = Vector3.new(0, 0, Fling[3])
-        local plr1 = game.Players.LocalPlayer.Character
-        for i < 1000 do
-        	plr1.HumanoidRootPart.CFrame = playerFling.Character.HumanoidRootPart.CFrame
-        	i = i + 1
-        	wait(0.001)
-        end
+        
+        
         print("Enabled fling")
 
         wait(2)
@@ -1101,11 +1097,16 @@ end})
                         Player.Character.HumanoidRootPart.CFrame = Workspace.HouseInteriors.blueprint:FindFirstChildWhichIsA('Model'):GetModelCFrame():ToWorldSpace(CFrame.new(0, 0, -6)) 
 
                         wait(5)
-                                               		local plr1 = game.Players.LocalPlayer.Character
+                            local plr1 = game.Players.LocalPlayer.Character
 							local plr2 = game:GetService("Players"):FindFirstChild(Playt)
 
 							plr1.HumanoidRootPart.CFrame = plr2.Character.HumanoidRootPart.CFrame
-                        TToggleFling(Playt)
+                        TToggleFling()
+                        i = 0
+                        while i < 1000 do 
+                        	plr1.HumanoidRootPart.CFrame = plr2.Character.HumanoidRootPart.CFrame
+                        	wait(0.001)
+                        end
                     end 
                 end)
             end 
