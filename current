@@ -989,7 +989,7 @@ local AxisPositionY = {
 local Fling = {
     false, --toggle
     "", --hotkey
-    300, --speed
+    900, --speed
     false, --server
     false --stop vertfling
 }
