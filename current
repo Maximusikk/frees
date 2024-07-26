@@ -1058,11 +1058,12 @@ local function TToggleFling(PlayerName)
         end
         
         EnableNoClip()
-        BodyThrust.Force = Vector3.new(Fling[3], 0, 0)
-        BodyThrust.Location = Vector3.new(0, 0, Fling[3])
-        local plr1 = game.Players.LocalPlayer.Character
+                local plr1 = game.Players.LocalPlayer.Character
 		local plr2 = game:GetService("Players"):FindFirstChild(PlayerName)
         plr1.HumanoidRootPart.CFrame = plr2.Character.HumanoidRootPart.CFrame
+        BodyThrust.Force = Vector3.new(Fling[3], 0, 0)
+        BodyThrust.Location = Vector3.new(0, 0, Fling[3])
+
         
         
         print("Enabled fling")
