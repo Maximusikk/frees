@@ -743,7 +743,7 @@ end})
         end)
     end)
 
-    Tabs.Main:AddButton({Title = "Grab Trading Linence",Description = "Grabs Trading Linence",Callback = function()
+    Tabs.Main:AddButton({Title = "Disable graphics",Description = "Grabs Trading Linence",Callback = function()
 		for i,v in pairs(game:GetService("Workspace").Interiors:GetDescendants()) do
 		    if v:IsA("BasePart") then
 		        v.Transparency = 1 
