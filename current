@@ -727,7 +727,21 @@ Tabs.Main:AddButton({Title = "Toggle fling",Description = "Toggles the fling",Ca
         TToggleFling()
     end)
 end})
-	
+	 local Toggle = Tabs.Main:AddToggle("CPU", {Title = "LowCpu render", Default = false})
+    Toggle:OnChanged(function()
+        Render = Options.CPU.Value
+    end)
+    local Toggle = Tabs.Main:AddToggle("Cr", {Title = "Lag Server", Default = false})
+    Toggle:OnChanged(function()
+        Crash = Options.Cr.Value
+        RunService.RenderStepped:Connect(function()
+            if Crash then
+                for i=1,50 do
+                    ReplicatedStorage.API["TeamAPI/ChooseTeam"]:InvokeServer("Babies", true)
+                end 
+            end 
+        end)
+    end)
 	local Toggle = Tabs.Main:AddToggle("Hi10", {Title = "Teleport Personer", Default = false})
     Toggle:OnChanged(function()
         Sus = Options.Hi10.Value
