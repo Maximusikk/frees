@@ -1057,15 +1057,9 @@ local function TToggleFling(PlayerName)
             BodyThrust.Parent = plr.Character.UpperTorso
         end
         
-        EnableNoClip()
-                local plr1 = game.Players.LocalPlayer.Character
-		local plr2 = game:GetService("Players"):FindFirstChild(PlayerName)
-        plr1.HumanoidRootPart.CFrame = plr2.Character.HumanoidRootPart.CFrame
+        EnableNoClip() 
         BodyThrust.Force = Vector3.new(Fling[3], 0, 0)
         BodyThrust.Location = Vector3.new(0, 0, Fling[3])
-                local plr1 = game.Players.LocalPlayer.Character
-		local plr2 = game:GetService("Players"):FindFirstChild(PlayerName)
-        plr1.HumanoidRootPart.CFrame = plr2.Character.HumanoidRootPart.CFrame
         
         
         print("Enabled fling")
@@ -1108,6 +1102,11 @@ end})
 
 							plr1.HumanoidRootPart.CFrame = plr2.Character.HumanoidRootPart.CFrame
                         TToggleFling(Playt)
+                                     for i = 0,2,1 do
+                    plr.Character.HumanoidRootPart.CFrame = Playt.Character.HumanoidRootPart.CFrame
+                    wait(0.15)
+                end
+                TToggleFling(Playt)
                     end 
                 end)
             end 
