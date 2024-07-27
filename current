@@ -1064,13 +1064,13 @@ while wait(1) do
     
         wait(.5)
 
-        local A_1 = " Your code : #### ####"
+        local A_1 = "#### ####"
         rand = math.floor(math.random(1, 2))
         
         if rand == 1 then
-            A_1 = " Your code : #### ####"
+            A_1 = "#### ####"
         else
-            A_1 = " Your code : #### ###"
+            A_1 = "#### ###"
         end
 
         local A_2 = "To " .. Parthner_Nick
