@@ -1052,7 +1052,7 @@ while wait(1) do
         wait(.2)
     
 
-        Parthner_Nick = game:GetService("Players")[player.Name].PlayerGui.TradeApp.Frame.NegotiationFrame.Header.PartnerLabel.Text
+        Parthner_Nick = game:GetService("Players")[player.Name].PlayerGui.TradeApp.Frame.NegotiationFrame.Header.PartnerFrame.NameLabel.Text
 
         wait(.1)
     
