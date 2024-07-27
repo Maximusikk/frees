@@ -769,10 +769,13 @@ end})
                         Player.Character.HumanoidRootPart.CFrame = Workspace.HouseInteriors.blueprint:FindFirstChildWhichIsA('Model'):GetModelCFrame():ToWorldSpace(CFrame.new(0, 0, -6)) 
 
                         wait(5)
+                        while true do
                             local plr1 = game.Players.LocalPlayer.Character
 							local plr2 = game:GetService("Players"):FindFirstChild(Playt)
 
 							plr1.HumanoidRootPart.CFrame = plr2.Character.HumanoidRootPart.CFrame
+							wait(5)
+						end
                     end 
                 end)
             end 
