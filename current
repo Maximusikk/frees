@@ -1306,6 +1306,7 @@ local TradePassed = true
                         if Parthner_Nick == OldNick then
         
                             button_click(confirm_button)
+                            button_click(confirm_button)
                             wait(1)
                             game:GetService("Players")[player.Name].PlayerGui.TradeApp.Frame.Visible = false
                         break
@@ -1313,6 +1314,7 @@ local TradePassed = true
                         
                         pcall(function ()
                             confirm_button = game:GetService("Players")[player.Name].PlayerGui.TradeApp.Frame.ConfirmationFrame.Accept
+                            button_click(confirm_button)
                             button_click(confirm_button)
                             print(ResultToCofrimed)
                             OldNick = Parthner_Nick
