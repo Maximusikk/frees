@@ -1012,6 +1012,7 @@ while wait(1) do
         pcall(function()
             if string.find(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Info.TextLabel.Text, 'This trade seems') then
                 button_click(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Buttons.ButtonTemplate)
+                 button_click(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Buttons.ButtonTemplate)
             end
         end)
 
@@ -1022,6 +1023,7 @@ while wait(1) do
         pcall(function()
             if string.find(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Info.TextLabel.Text, 'Remember:') then
                 button_click(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Buttons.ButtonTemplate)
+                 button_click(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Buttons.ButtonTemplate)
             end
         end)
         
@@ -1030,6 +1032,7 @@ while wait(1) do
             if button.Name == 'ButtonTemplate' then
                 if button.Face.TextLabel.Text == 'Accept' and string.find(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Info.TextLabel.Text, 'sent you a trade request') then
                     _G.button = button
+                    button_click(_G.button)
                     button_click(_G.button)
                     break
                 end
@@ -1043,6 +1046,7 @@ while wait(1) do
         pcall(function()
             if string.find(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Info.TextLabel.Text, 'Be careful when trading') then
                 button_click(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Buttons.ButtonTemplate)
+                 button_click(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Buttons.ButtonTemplate)
             end
         end)
 
@@ -1218,6 +1222,7 @@ local TradePassed = true
                 end) then
                     wait(.01)
                     button_click(accept_button)
+                    button_click(accept_button)
                     wait(1)
                     ItsAccepted = false
                     CheckAgain = false
@@ -1228,6 +1233,7 @@ local TradePassed = true
                     pcall(function()
                         if string.find(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Info.TextLabel.Text, 'This trade seems') then
                             button_click(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Buttons.ButtonTemplate)
+                                                    button_click(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Buttons.ButtonTemplate)
                         end
                     end)
 
@@ -1236,6 +1242,7 @@ local TradePassed = true
                     pcall(function()
                         if string.find(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Info.TextLabel.Text, 'Remember:') then
                             button_click(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Buttons.ButtonTemplate)
+                             button_click(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Buttons.ButtonTemplate)
                         end
                     end)
                     
