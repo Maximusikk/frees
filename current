@@ -723,26 +723,6 @@ local function TToggleFling(PlayerName)
         
 end
 
-Tabs.Main:AddButton({Title = "Toggle fling",Description = "Toggles the fling",Callback = function()
-    spawn(function()
-        TToggleFling()
-    end)
-end})
-	 local Toggle = Tabs.Main:AddToggle("CPU", {Title = "LowCpu render", Default = false})
-    Toggle:OnChanged(function()
-        Render = Options.CPU.Value
-    end)
-    local Toggle = Tabs.Main:AddToggle("Cr", {Title = "Lag Server", Default = false})
-    Toggle:OnChanged(function()
-        Crash = Options.Cr.Value
-        RunService.RenderStepped:Connect(function()
-            if Crash then
-                for i=1,50 do
-                    ReplicatedStorage.API["TeamAPI/ChooseTeam"]:InvokeServer("Babies", true)
-                end 
-            end 
-        end)
-    end)
 
     Tabs.Main:AddButton({Title = "Disable graphics",Description = "Grabs Trading Linence",Callback = function()
 		for i,v in pairs(game:GetService("Workspace").Interiors:GetDescendants()) do
