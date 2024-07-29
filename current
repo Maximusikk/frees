@@ -148,13 +148,7 @@ Part.Transparency = 0.5
 Part.CFrame = CFrame.new(5000,5000,5000)
 Part.Parent = Workspace
 ReplicatedStorage:WaitForChild("ClientModules"):WaitForChild("Core"):WaitForChild("InteriorsM"):WaitForChild("InteriorsM")
-local RunService = game:GetService("RunService")
-local MaxFPS = 30
-while true do
-	local t0 = tick()
-	RunService.Heartbeat:Wait()
-	repeat until (t0 + 1/MaxFPS) < tick()
-end
+
 local Location = nil
 for i, v in pairs(getgc()) do
     if type(v) == "function" then
