@@ -1026,6 +1026,7 @@ while wait(1) do
             if button.Name == 'ButtonTemplate' then
                 if button.Face.TextLabel.Text == 'Accept' and string.find(game:GetService("Players")[player.Name].PlayerGui.DialogApp.Dialog.NormalDialog.Info.TextLabel.Text, 'sent you a trade request') then
                     _G.button = button
+                    wait(5)
                     button_click(_G.button)
                     button_click(_G.button)
                     break
@@ -1210,6 +1211,7 @@ local TradePassed = true
                     accept_button = game:GetService("Players")[player.Name].PlayerGui.TradeApp.Frame.NegotiationFrame.Body.Accept
                 end) then
                     wait(.01)
+                    wait(5)
                     button_click(accept_button)
                     button_click(accept_button)
                     wait(1)
