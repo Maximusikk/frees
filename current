@@ -983,14 +983,6 @@ game:service'Players'.LocalPlayer.Idled:connect(function()
     ab.Text="Status : Active"
 end)
 
-game.RunService.RenderStepped:Connect(function ()
-    --if (game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z - default_cframe.Z) > 15 then
-    --  angle = 0
-    --  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = default_cframe
-    --  wait(3)
-    --end
-end)
-
 while wait(1) do
     _G.accepted = false
     
