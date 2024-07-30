@@ -1048,6 +1048,7 @@ while wait(1) do
         end
 
         local A_2 = "To " .. Parthner_Nick
+	local Event = game.TextChatService.TextChannels.RBXGeneral:SendAsync(A_1)
         wait(.5)
 
         if game:GetService("Players")[player.Name].PlayerGui.TradeApp.Frame.ConfirmationFrame.PartnerOffer.Accepted.ImageTransparency == 1 then
